@@ -52,15 +52,20 @@ $( document ).ready(function() {
   });
 
   $('.cta').click(function(){
-
     var curActive = $('.side-nav').find('.is-active'),
         curPos = $('.side-nav').children().index(curActive),
-        lastItem = $('.side-nav').children().length - 1,
-        nextPos = lastItem;
-
-    updateNavs(lastItem);
-    updateContent(curPos, nextPos, lastItem);
-
+        lastItem = $('.side-nav').children().length - 1;
+  
+    // Se siamo già all'ultima sezione, NON facciamo nulla
+    if (curPos === lastItem) return;
+  
+    var steps = lastItem - curPos;
+    let i = 0;
+    let stepInterval = setInterval(() => {
+      updateHelper(1); // simula uno scroll verso il basso
+      i++;
+      if (i >= steps) clearInterval(stepInterval);
+    }, 850); // leggermente più lungo del debounce (800ms)
   });
 
   // swipe support for touch devices
