@@ -34,9 +34,40 @@
     font-weight: 300;
     font-style: normal;
 }
+/* Font: Mokoto */
+@font-face {
+    font-family: 'Mokoto';
+    src: url("fonts/Mokoto.woff2") format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  /* Font: Ethnocentric */
+  @font-face {
+    font-family: 'Ethnocentric';
+    src: url("fonts/Ethnocentric.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  /* Font: Roundor */
+  @font-face {
+    font-family: 'Roundor';
+    src: url("fonts/Roundor.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+  }
+  /* Font: Roundor */
+  @font-face {
+      font-family: 'Good-Times';
+      src: url("fonts/Good-Times.woff2") format("woff2");
+      font-weight: normal;
+      font-style: normal;
+  }
+
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
-    font-family: sans-serif;
+    font-family: 'Roundor', sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
     width: 100%;
@@ -48,7 +79,8 @@ body {
     margin: 0;
     width: 100%;
     height: 100%;
-    overflow-x: hidden;
+    overflow-x: auto;
+    font-family: 'Roundor', sans-serif;
 }
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
     display: block;
@@ -119,7 +151,7 @@ pre {
     overflow: auto;
 }
 code, kbd, pre, samp {
-    font-family: monospace, monospace;
+    font-family: 'Roundor', sans-serif;
     font-size: 1em;
 }
 button, input, optgroup, select, textarea {
@@ -214,11 +246,20 @@ img::-moz-selection {
     background: transparent;
 }
 
+h1, h2 {
+    font-family: 'Ethnocentric', sans-serif;
+    text-shadow: 
+        0 0 5px #8847c7, 
+        0 0 10px #8847c7, 
+        0 0 15px #2D68C4;
+    margin: 0; /* opzionale, se vuoi togliere margini default */
+}
+
 body {
     background-color: #040911;
     font-size: 14px;
     line-height: 1.6;
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Roundor', sans-serif;
     color: #dee8f7;
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
@@ -433,13 +474,17 @@ body {
 
 .header--logo img {
     height: 2rem;
+    filter: drop-shadow(0 0 15px #8847c7) drop-shadow(0 0 45px #2D68C4);
 }
 
 .header--logo p {
+    font-family: 'Mokoto', sans-serif;
     margin: 0 0 0 10px;
     font-size: 16px;
     font-weight: 700;
     text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px #8847c7, 0 0 45px #2D68C4;
 }
 
 .header--nav-toggle {
@@ -673,6 +718,7 @@ body {
 
 .intro--banner h1 {
     position: relative;
+    padding-top: 15%;
     font-size: 68px;
     font-weight: 900;
     line-height: 1;
@@ -682,6 +728,7 @@ body {
 .intro--banner button {
     position: relative;
     padding: 5px 17px 5px 12px;
+    margin-top: 15px;
     font-weight: 700;
     text-transform: uppercase;
     background-color: transparent;
@@ -1098,61 +1145,17 @@ body {
 .about--banner {
     position: relative;
     height: 475px;
-    padding-bottom: 5%;
 }
 
-.about--banner::before {
-    content: "";
-    position: absolute;
-    top: 20px;
-    left: 200px;
-    -webkit-transform: rotate(-25deg);
-    transform: rotate(-25deg);
-    border: 5px solid #2D68C4;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-}
-
-.about--banner::after {
-    content: "";
-    position: absolute;
-    top: 75px;
-    left: 400px;
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
-    width: 10px;
-    height: 10px;
-    background-color: #2D68C4;
-}
 
 .about--banner h2 {
     position: relative;
     margin-top: 35px;
-    font-size: 68px;
+    font-size: 6vw;
     font-weight: 900;
     line-height: 1;
     z-index: 1;
-}
-
-.about--banner h2::before {
-    content: "";
-    position: absolute;
-    top: 60px;
-    left: 268px;
-    width: 30px;
-    height: 30px;
-    background-color: #2D68C4;
-    border-radius: 50%;
-}
-
-.about--banner h2::after {
-    content: "";
-    position: absolute;
-    top: 255px;
-    left:255px;
-    width:10px;
-    height:10px;
-    background-color:#2D68C4
+    text-shadow: 0 0 15px #8847c7, 0 0 45px #2D68C4;
 }
 
 .about--banner a {
@@ -1180,7 +1183,7 @@ body {
 .about--banner img {
     position: absolute;
     bottom: -90px;
-    right: -12px;
+    right: -16vw;
 }
 
 /* Immagine del parallax */
@@ -1190,11 +1193,6 @@ body {
     width: 600px;
 }
 
-@media (min-width: 767px) and (max-width: 868px) {
-.about--banner img {
-    right: -20%;
-}
-}
 
 
 .about--options {
@@ -1252,29 +1250,13 @@ body {
 
 @media (max-width: 767px) {
  
-    .about--banner::before {
-        display: none;
-    }
-
-    .about--banner::after {
-        display: none;
-    }
-
     .about--banner h2 {
         margin-top: 10px;
-        font-size: 44px;
-    }
-
-    .about--banner h2::before {
-        display: none;
-    }
-
-    .about--banner h2::after {
-        display: none;
     }
 
     .about--banner img {
         width: 315px;
+        right: 0;
     }
 
     .about--banner {
@@ -1284,6 +1266,7 @@ body {
         align-items: center;
         position: relative;
         height: auto;
+        padding-bottom: 15%;
       }
     
       .about--banner img.parallax-img {
@@ -1296,6 +1279,7 @@ body {
     
       .about--banner h2 {
         text-align: center;
+        font-size: 10vw;
       }
 }
 
@@ -1304,25 +1288,8 @@ body {
         height: auto;
     }
 
-    .about--banner::before {
-        display: none;
-    }
-
-    .about--banner::after {
-        display: none;
-    }
-
     .about--banner h2 {
         margin-top: 0;
-        font-size: 55px;
-    }
-
-    .about--banner h2::before {
-        display: none;
-    }
-
-    .about--banner h2::after {
-        display: none;
     }
 
 }
@@ -1465,7 +1432,7 @@ body {
     margin: 0 auto;
     text-align: center;
     color: #fff;
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Good-Times', sans-serif;
     background: linear-gradient(45deg, #2E5090, #2d68c4, #6a34e2, #002e3d);
     background-size: 400% 400%;
     animation: gradientShift 10s ease infinite;
@@ -1683,7 +1650,8 @@ body {
     transform-style: preserve-3d;
     -webkit-transform: translateX(350px) translateZ(-1000px);
     transform: translateX(350px) translateZ(-1000px);
-    font-size: 55px;
+    font-family: 'Good-Times', sans-serif;
+    font-size: 4vw;
     font-weight: 900;
     opacity: 0;
     cursor: pointer;
@@ -1710,34 +1678,21 @@ body {
 }
 }
 
-.outer-nav>li::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -25%);
-    transform: translate(-50%, -25%);
-    width: 110%;
-    height: 15px;
-    opacity: 0;
-    background-color: #2D68C4;
-}
-
-.outer-nav>li.is-active::before {
-    opacity: 1;
-}
+.outer-nav > li {
+    transition: color 0.3s, text-shadow 0.3s;
+  }
+  
+  .outer-nav > li.is-active {
+    color: #CDDCF4;
+    text-shadow: 0 0 15px #8847c7, 0 0 45px #2D68C4;
+  }
 
 @media (max-width: 767px) {
     .outer-nav>li {
-        font-size: 44px;
+        font-size: 5vw;
     }
 }
 
-@media (max-width: 600px) {
-    .outer-nav>li {
-        font-size: 7vw;
-    }
-}
 
 .outer-nav li.is-vis:nth-child(2) {
     -webkit-transition-delay: .04s;
